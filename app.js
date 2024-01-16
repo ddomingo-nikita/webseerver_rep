@@ -1,4 +1,5 @@
 import express from "express"
+import {database} from "./database.js";
 
 const app = express()
 
@@ -15,7 +16,7 @@ app.get("/", (req, res)=>{
 app.post("/api/login", (req, res) => {
     const name = req.body.username;
     const password = req.body.password;
-    if(name === "Nikita" && password === "123"){
+    if(database.users.find((user)=>user.name===name && user.password===password)){
         res.send("you are logged in")
     }
     else{
