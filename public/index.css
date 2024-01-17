@@ -26,3 +26,18 @@ body{
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
+
+.password-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.name-field{
+    width: 70%
+}
+
+#show-button{
+    width: 30%
+}

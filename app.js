@@ -54,6 +54,12 @@ app.get("/dashboard", (req, res)=>{
     }
 })
 
+app.get("/api/:username/city", (req, res)=>{
+    console.log(req.params.username)
+    const currentUser = database.users.find((user)=>user.name===req.params.username)
+    currentUser ? res.send(currentUser.city) : res.sendStatus(404)
+})
+
 
 app.listen(port, ()=>{
     console.log("Server has started!")
