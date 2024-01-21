@@ -41,3 +41,8 @@ body{
 #show-button{
     width: 30%
 }
+
+.avatar{
+    width: 100px;
+    height: 100px;
+}

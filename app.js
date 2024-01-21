@@ -9,8 +9,9 @@ const app = express()
 
 
 
-const port = 3001
 
+const port = 3001
+export const apiUrl = "http://localhost:"+port
 
 app.use(cookieParser())
 app.use(express.static('public'));
@@ -43,11 +44,11 @@ app.post("/api/login", (req, res) => {
 
 })
 
-app.get("/dashboard", (req, res)=>{
+app.get("/my-dashboard", (req, res)=>{
     const isLogged = req.cookies.token
-    console.log(isLogged)
+    // res.send(isLogged)
     if(isLogged){
-        res.send("welcome to the dashboard")
+       res.sendFile(__dirname+"/public/dashboard.html")
     }
     else{
         res.redirect(301, "/")
@@ -59,6 +60,13 @@ app.get("/api/:username/city", (req, res)=>{
     const currentUser = database.users.find((user)=>user.name===req.params.username)
     currentUser ? res.send(currentUser.city) : res.sendStatus(404)
 })
+
+app.get("/api/:username/profile-picture-path", (req, res)=>{
+    console.log(req.params.username)
+    const currentUser = database.users.find((user)=>user.name===req.params.username)
+    currentUser ? res.send(currentUser.profilePicturePath) : res.sendStatus(404)
+})
+
 
 
 app.listen(port, ()=>{
