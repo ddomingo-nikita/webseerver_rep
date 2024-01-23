@@ -17,8 +17,10 @@ const logIn = (event) => {
         body: `username=${name.value}&password=${password.value}`
     }).then((result) => {
         if(result.status === 200){
-            console.log(location)
-            window.location = location.origin+"/my-dashboard"
+            result.json().then((res)=>{
+                document.cookie = `token=${res.token}`
+            })
+            window.location = "/my-dashboard"
         }
         else{
             document.getElementById("error-text").style.display="block"

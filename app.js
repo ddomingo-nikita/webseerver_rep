@@ -10,7 +10,7 @@ const app = express()
 
 
 
-const port = 3001
+const port = 3002
 export const apiUrl = "http://localhost:"+port
 
 app.use(cookieParser())
@@ -35,8 +35,8 @@ app.post("/api/login", (req, res) => {
     const password = req.body.password;
     if(database.users.find((user)=>user.name===name && user.password===password)){
         const newToken = `${name}_${Date.now()}`
-        res.cookie('token', newToken, { maxAge: 12000, httpOnly: false});
-        res.send(newToken)
+        // res.cookie('token', newToken, { maxAge: 12000, httpOnly: false});
+        res.send(JSON.stringify({token: newToken}))
     }
     else{
         res.sendStatus(401)
@@ -45,13 +45,14 @@ app.post("/api/login", (req, res) => {
 })
 
 app.get("/my-dashboard", (req, res)=>{
+    console.log(req.cookies)
     const isLogged = req.cookies.token
     // res.send(isLogged)
     if(isLogged){
        res.sendFile(__dirname+"/public/dashboard.html")
     }
     else{
-        res.redirect(301, "/")
+        res.redirect(301, "/login")
     }
 })
 
