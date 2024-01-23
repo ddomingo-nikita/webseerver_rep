@@ -23,7 +23,7 @@ app.get("/home", (req, res)=>{
 })
 
 app.get("/", (req, res)=>{
-    res.redirect(301, "/home")
+    res.redirect( "/home")
 })
 
 app.get("/login", (req, res)=>{
@@ -52,7 +52,7 @@ app.get("/my-dashboard", (req, res)=>{
        res.sendFile(__dirname+"/public/dashboard.html")
     }
     else{
-        res.redirect(301, "/login")
+        res.redirect( "/login")
     }
 })
 

@@ -7,11 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="dashboard-page-scripts/get-name.js" defer></script>
+    <script src="dashboard-page-scripts/update-current-weather-information.js" defer></script>
 </head>
 <body>
     <div class="root">
-        <h2><span id="name"></span>'s Dasboard page</h2>
+        <h1><span id="name"></span>'s Dasboard page</h1>
         <img alt="user image" class="avatar" src="avatar.jpg"/>
+        <h3 id="current-weather"></h3>
+        <button type="button" class="btn btn-primary" onclick="updateCurrentWeatherInformation()">Get weather info</button>
         <button type="button" class="btn btn-outline-primary">Log Out</button>
     </div>
 </body>
