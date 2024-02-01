@@ -8,6 +8,7 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="dashboard-page-scripts/get-name.js" defer></script>
     <script src="dashboard-page-scripts/update-current-weather-information.js" defer></script>
+    <script src="dashboard-page-scripts/logout.js" defer></script>
 </head>
 <body>
 <div class="dashboard_root">
@@ -19,7 +20,7 @@
             <span id="name"></span>'s Dasboard page
         </h1>
         </div>
-        <button type="button" class="btn btn-outline-primary" style="width: 100px; height: 50px">Log Out</button>
+        <button type="button" class="btn btn-outline-primary" style="width: 100px; height: 50px" onclick="logout()">Log Out</button>
     </div>
     <h3 id="current-weather"></h3>
     <img alt="weather" id="weather-icon" src="" style="display: none; width: 100px; height: 100px"/>

@@ -19,6 +19,7 @@ const logIn = (event) => {
         if(result.status === 200){
             result.json().then((res)=>{
                 document.cookie = `token=${res.token}`
+                sessionStorage.setItem("username", name.value)
             })
             window.location = "/my-dashboard"
         }
