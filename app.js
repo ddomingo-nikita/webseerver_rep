@@ -57,15 +57,13 @@ app.get("/my-dashboard", (req, res)=>{
 })
 
 app.get("/api/:username/city", (req, res)=>{
-    console.log(req.params.username)
     const currentUser = database.users.find((user)=>user.name===req.params.username)
-    currentUser ? res.send(currentUser.city) : res.sendStatus(404)
+    currentUser ? res.send(JSON.stringify({city: currentUser.city})) : res.sendStatus(404)
 })
 
 app.get("/api/:username/profile-picture-path", (req, res)=>{
-    console.log(req.params.username)
     const currentUser = database.users.find((user)=>user.name===req.params.username)
-    currentUser ? res.send(currentUser.profilePicturePath) : res.sendStatus(404)
+    currentUser ? res.send(JSON.stringify({path: currentUser.profilePicturePath})) : res.sendStatus(404)
 })
 
 
