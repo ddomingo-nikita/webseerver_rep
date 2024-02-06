@@ -28,5 +28,6 @@ const updateCurrentWeatherInformation = async () => {
     const name = weather.weather[0].main.toLowerCase()
     document.getElementById("weather-icon").src=`../weather-pictures/${appropriateSrc.includes(name)?name:"clouds"}.png`
     document.getElementById("weather-icon").style.display="block"
+    updateForecast()
 
 }

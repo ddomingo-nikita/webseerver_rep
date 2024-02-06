@@ -45,7 +45,7 @@ app.post("/api/login", (req, res) => {
 })
 
 app.get("/my-dashboard", (req, res)=>{
-    console.log(req.cookies)
+
     const isLogged = req.cookies.token
     // res.send(isLogged)
     if(isLogged){
@@ -69,6 +69,6 @@ app.get("/api/:username/profile-picture-path", (req, res)=>{
 
 
 app.listen(port, ()=>{
-    console.log("Server has started!")
+    console.log("Server has started! URL: ", `http://localhost:${port}`)
 })
 

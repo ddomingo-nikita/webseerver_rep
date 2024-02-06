@@ -9,6 +9,7 @@
     <script src="dashboard-page-scripts/get-name.js" defer></script>
     <script src="dashboard-page-scripts/update-current-weather-information.js" defer></script>
     <script src="dashboard-page-scripts/get-temperature-by-city.js" defer></script>
+    <script src="dashboard-page-scripts/update-forecast.js" defer></script>
     <script src="dashboard-page-scripts/logout.js" defer></script>
 </head>
 <body>
@@ -26,6 +27,26 @@
 
     <h3 id="current-weather"></h3>
     <img alt="weather" id="weather-icon" src="" style="display: none; width: 100px; height: 100px"/>
+    <div style="display: flex; flex-direction: column; justify-content: space-between; overflow-x: scroll">
+        <div class="card-container" id="day-1">
+
+        </div>
+        <div class="card-container" id="day-2">
+
+        </div>
+        <div class="card-container" id="day-3">
+
+        </div>
+        <div class="card-container" id="day-4">
+
+        </div>
+        <div class="card-container" id="day-5">
+
+        </div>
+        <div class="card-container" id="day-6">
+
+        </div>
+    </div>
     <button type="button" class="btn btn-primary" onclick="updateCurrentWeatherInformation()">Get current weather</button>
 
     <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column">
