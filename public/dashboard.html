@@ -8,6 +8,7 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="dashboard-page-scripts/get-name.js" defer></script>
     <script src="dashboard-page-scripts/update-current-weather-information.js" defer></script>
+    <script src="dashboard-page-scripts/get-temperature-by-city.js" defer></script>
     <script src="dashboard-page-scripts/logout.js" defer></script>
 </head>
 <body>
@@ -22,10 +23,21 @@
         </div>
         <button type="button" class="btn btn-outline-primary" style="width: 100px; height: 50px" onclick="logout()">Log Out</button>
     </div>
+
     <h3 id="current-weather"></h3>
     <img alt="weather" id="weather-icon" src="" style="display: none; width: 100px; height: 100px"/>
-    <button type="button" class="btn btn-primary" onclick="updateCurrentWeatherInformation()">Get weather info</button>
+    <button type="button" class="btn btn-primary" onclick="updateCurrentWeatherInformation()">Get current weather</button>
 
+    <div style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column">
+        <span style="width: 70%; text-align: start">Password</span>
+        <label class="password-container">
+            <input class="form-control" id="city-input" name="password" placeholder="Enter your city"
+                   type="text"/>
+            <button class="btn btn-outline-primary" type="button" onclick="getTemperatureByCity()" id="get-weather">Get temperature</button>
+        </label>
+        <span class="alert" id="error-text" style="display: none; color: darkred; font-weight: bold">This field cannot be empty</span>
+    </div>
+    <h3 id="current-temperature"></h3>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
